@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>JSONConstructor</title>
+</head>
+<body>
+    <form class="form" method="POST" action="{{ url_for('my_form') }}">
+        {{ form.csrf_token }}
+        <div class="form__input-container">
+            <label class="form__label" for="{{ form.bot_type.id }}">Тип бота</label>
+            {{ form.bot_type(class="form__input_select") }}
+        </div>
+
+        <div class="form__input-container">
+            <label class="form__label" for="{{ form.language.id }}">Изучаемый язык</label>
+            {{ form.language(class="form__input_select") }}
+        </div>
+
+        <div class="form__input-container">
+            <label class="form__label" for="{{ form.lesson_type.id }}">Тип урока</label>
+            {{ form.lesson_type(class="form__input_select") }}
+        </div>
+
+        <div class="form__input-container form__input-container_column">
+            <label class="form__label" for="{{ form.topic.id }}">Тема для разговора</label>
+            {{ form.topic(class="form__input form__input_textarea") }}
+        </div>
+
+        <div class="form__input-container form__input-container_column">
+            <label class="form__label" for="{{ form.text.id }}">Текст для ответов на вопросы</label>
+            {{ form.text(class="form__input form__input_textarea") }}
+        </div>
+
+        <div class="form__input-container">
+            <label class="form__label" for="{{ form.save_to_file.id }}">Сохранить урок в файл</label>
+            {{ form.save_to_file(class="form__input") }}
+        </div>
+        <input class="form__submit" type="submit" value="Отправить">
+    </form>
+</body>
+</html>

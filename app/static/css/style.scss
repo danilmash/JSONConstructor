@@ -1,0 +1,95 @@
+@use 'reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+    font-family: Roboto;
+    font-size: 16px;
+    min-height: 100vh;
+    background-color: #363535;
+    color: #ebebeb;
+    padding: 5vw 15px;
+}
+
+option {
+    color: black;
+}
+
+.form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    &__input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        &_column {
+            flex-direction: column;
+            align-items: flex-start;
+        }        
+    }
+
+    &__label {
+        font-size: 1.5rem;
+    }
+
+    &__input {
+        font-family: Roboto;
+        padding: 5px 10px;
+        font-size: 1.2rem;
+
+        &_textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+
+        &_checkbox {
+            padding: 2px;
+            width: 20px;
+            height: 20px;
+    
+            &:checked {
+                background-color: white;
+            }        
+        }
+
+        &_select {
+            font-family: inherit;
+            font-size: 1.1em;
+            position: relative; 
+            padding: 5px 20px 5px 5px;
+            border: 1px solid white;
+            min-width: 100px;
+            line-height: 100%;
+            
+        }
+    }
+
+    &__submit {
+        font-family: inherit;
+        font-size: 1.3rem;
+        background-color: rgb(48, 48, 255);
+        color: white;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.5s;
+
+        &:hover {
+            background-color: rgb(88, 88, 255);
+        }
+    }
+}
