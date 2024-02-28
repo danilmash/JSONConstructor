@@ -8,8 +8,8 @@
 3. В шаблоне index.html добавляем код в нужное место 
 ```
 <div class="form__input-container">
-    <label class="form__label" for="{{ form.bot_type.id }}">Тип бота</label>
-    {{ form.bot_type(class="form__input form__input_select") }}
+<label class="form__label" for="{{ form.bot_type.id }}">Тип бота</label>
+{{ form.bot_type(class="form__input form__input_select") }}
 </div>
 ```
 ***Вместо bot_type название новго поля а вместо _select у класса добавляем тип нового поля (_select, _checkbox, _textarea)***
@@ -18,4 +18,3 @@
 document.querySelector('.form__input[name="bot_type"]').value = data.bot_type;
 ```
 ***Меняем bot_type на название нового поля***
-
