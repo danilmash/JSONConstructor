@@ -9,19 +9,25 @@
 <body>
     <form class="form" method="POST" action="{{ url_for('my_form') }}">
         {{ form.csrf_token }}
+
+        <div class="form__input-container">
+            <label for="file" class="form__label">Загрузите файл</label>
+            <input id="file" class="form__input" type="file" accept=".json">
+        </div>
+
         <div class="form__input-container">
             <label class="form__label" for="{{ form.bot_type.id }}">Тип бота</label>
-            {{ form.bot_type(class="form__input_select") }}
+            {{ form.bot_type(class="form__input form__input_select") }}
         </div>
 
         <div class="form__input-container">
             <label class="form__label" for="{{ form.language.id }}">Изучаемый язык</label>
-            {{ form.language(class="form__input_select") }}
+            {{ form.language(class="form__input form__input_select") }}
         </div>
 
         <div class="form__input-container">
             <label class="form__label" for="{{ form.lesson_type.id }}">Тип урока</label>
-            {{ form.lesson_type(class="form__input_select") }}
+            {{ form.lesson_type(class="form__input form__input_select") }}
         </div>
 
         <div class="form__input-container form__input-container_column">
@@ -38,7 +44,39 @@
             <label class="form__label" for="{{ form.save_to_file.id }}">Сохранить урок в файл</label>
             {{ form.save_to_file(class="form__input") }}
         </div>
-        <input class="form__submit" type="submit" value="Отправить">
+        <button class="form__submit" type="submit">Загрузить</button>
     </form>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('input[type="file"]').addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            var jsonData = JSON.parse(e.target.result);
+                            fillForm(jsonData);
+                        } catch (error) {
+                            alert("Ошибка при чтении файла JSON: " + error.message);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+        });
+
+        function fillForm(data) {
+            document.querySelector('.form__input[name="bot_type"]').value = data.bot_type;
+            document.querySelector('.form__input[name="language"]').value = data.language;
+            document.querySelector('.form__input[name="lesson_type"]').value = data.lesson_type;
+            document.querySelector('.form__input[name="topic"]').value = data.topic;
+            document.querySelector('.form__input[name="text"]').value = data.text;
+            document.querySelector('.form__input[name="save_to_file"]').value = data.save_to_file;
+            // Продолжайте аналогично для других полей формы
+        }
+
+    </script>
 </body>
 </html>
