@@ -21,8 +21,8 @@
         </div>
 
         <div class="form__input-container">
-            <label class="form__label" for="{{ form.language.id }}">Изучаемый язык</label>
-            {{ form.language(class="form__input form__input_select") }}
+            <label class="form__label" for="{{ form.role_or_task.id }}">Изучаемый язык</label>
+            {{ form.role_or_task(class="form__input form__input_select") }}
         </div>
 
         <div class="form__input-container">
@@ -31,18 +31,23 @@
         </div>
 
         <div class="form__input-container form__input-container_column">
-            <label class="form__label" for="{{ form.topic.id }}">Тема для разговора</label>
-            {{ form.topic(class="form__input form__input_textarea") }}
+            <label class="form__label" for="{{ form.topic_of_dialogue.id }}">Тема для разговора</label>
+            {{ form.topic_of_dialogue(class="form__input form__input_textarea") }}
         </div>
 
         <div class="form__input-container form__input-container_column">
-            <label class="form__label" for="{{ form.text.id }}">Текст для ответов на вопросы</label>
-            {{ form.text(class="form__input form__input_textarea") }}
+            <label class="form__label" for="{{ form.text_for_questions.id }}">Текст для ответов на вопросы</label>
+            {{ form.text_for_questions(class="form__input form__input_textarea") }}
         </div>
 
         <div class="form__input-container">
-            <label class="form__label" for="{{ form.save_to_file.id }}">Сохранить урок в файл</label>
-            {{ form.save_to_file(class="form__input") }}
+            <label class="form__label" for="{{ form.save_lesson_to_file.id }}">Сохранить урок в файл</label>
+            {{ form.save_lesson_to_file(class="form__input") }}
+        </div>
+
+        <div class="form__input-container">
+            <label class="form__label" for="#filename">Введите название для json файла</label>
+            <input type="text" name="filename" id="filename" class="form__input form__input_input">
         </div>
         <button class="form__submit" type="submit">Загрузить</button>
     </form>
@@ -69,11 +74,11 @@
 
         function fillForm(data) {
             document.querySelector('.form__input[name="bot_type"]').value = data.bot_type;
-            document.querySelector('.form__input[name="language"]').value = data.language;
+            document.querySelector('.form__input[name="role_or_task"]').value = data.role_or_task;
             document.querySelector('.form__input[name="lesson_type"]').value = data.lesson_type;
-            document.querySelector('.form__input[name="topic"]').value = data.topic;
-            document.querySelector('.form__input[name="text"]').value = data.text;
-            document.querySelector('.form__input[name="save_to_file"]').value = data.save_to_file;
+            document.querySelector('.form__input[name="topic_of_dialogue"]').value = data.topic_of_dialogue;
+            document.querySelector('.form__input[name="text_for_questions"]').value = data.text_for_questions;
+            document.querySelector('.form__input[name="save_lesson_to_file"]').value = data.save_lesson_to_file;
             // Продолжайте аналогично для других полей формы
         }
 

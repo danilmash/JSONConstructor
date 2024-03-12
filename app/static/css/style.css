@@ -95,6 +95,10 @@ option {
   padding: 5px 10px;
   font-size: 1.2rem;
 }
+.form__input_input {
+  width: 100%;
+  line-height: 100%;
+}
 .form__input_textarea {
   box-sizing: border-box;
   width: 100%;

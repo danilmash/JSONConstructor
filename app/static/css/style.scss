@@ -47,6 +47,11 @@ option {
         padding: 5px 10px;
         font-size: 1.2rem;
 
+        &_input {
+            width: 100%;
+            line-height: 100%;
+        }
+
         &_textarea {
             box-sizing: border-box;
             width: 100%;
